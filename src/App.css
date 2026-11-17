@@ -136,6 +136,12 @@ header {
   gap: 20px;
 }
 
+.meal-price-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* ========================= */
 /* CARTES */
 /* ========================= */
@@ -151,6 +157,18 @@ header {
 
   background-color: white;
   border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+/* Bordure turquoise au survol */
+.meal-card:hover {
+  border-color: #00cdbd;
+  cursor: pointer;
+}
+
+/* Bordure permanente si le plat est dans le panier */
+.meal-card-selected {
+  border-color: #00cdbd;
 }
 
 /* Informations du plat */
@@ -211,16 +229,138 @@ header {
 .col-basket {
   width: 300px;
   min-height: 170px;
-  padding: 24px;
+  padding: 12px;
   flex-shrink: 0;
 
-  background-color: #e5e5e5;
+  background-color: white;
   border-radius: 6px;
-  text-align: center;
+
+  position: sticky;
+  top: 20px;
 }
 
 .col-basket h3 {
   font-size: 17px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Liste des plats du panier */
+
+.basket-meals {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Une ligne du panier */
+
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Boutons et quantité */
+
+.basket-quantity {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.basket-quantity button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+
+  background-color: white;
+  border: 1px solid #00cdbd;
+  border-radius: 50%;
+  color: #00cdbd;
+
+  cursor: pointer;
+}
+
+.basket-quantity span {
+  font-size: 14px;
+}
+
+/* Nom du plat */
+
+.basket-meal-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Prix du plat */
+
+.basket-meal-price {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Récapitulatif */
+
+.basket-summary {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.basket-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Total de la commande */
+
+.basket-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* Bouton de validation du panier */
+
+.basket-validate {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 20px;
+
+  background-color: #00cdbd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Bouton désactivé lorsque le panier est vide */
+
+.basket-validate:disabled {
+  background-color: #e5e5e5;
+  color: #888;
+  cursor: not-allowed;
 }
 
 /* ========================= */
